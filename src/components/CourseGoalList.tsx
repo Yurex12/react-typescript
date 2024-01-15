@@ -3,17 +3,21 @@ import CourseGoal from './CourseGoal';
 
 type CourseGoalListProps = {
   goals: CourseGoalsProps[];
+  onDeleteGoal: (id: number) => void;
 };
 
-function CourseGoalList({ goals }: CourseGoalListProps) {
-  //function handleDeleteGoal() {}
+function CourseGoalList({ goals, onDeleteGoal }: CourseGoalListProps) {
   return (
     <ul>
-      {goals.map(({ id, title, description }) => {
+      {goals.map((goal) => {
         return (
-          <li key={id}>
-            <CourseGoal title={title}>
-              <p> {description}</p>
+          <li key={goal.id}>
+            <CourseGoal
+              id={goal.id}
+              title={goal.title}
+              onDeleteGoal={onDeleteGoal}
+            >
+              <p> {goal.description}</p>
             </CourseGoal>
           </li>
         );
