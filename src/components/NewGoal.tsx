@@ -27,9 +27,6 @@ function NewGoal({ onAddGoal }: NewGoalProps) {
 
     e.currentTarget.reset();
     onAddGoal(newGoal);
-
-    // goal.current!.value = '';
-    // summary.current!.value = '';
   }
 
   return (
